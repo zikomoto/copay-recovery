@@ -277,7 +277,9 @@ app.service('recoveryServices', ['$rootScope', '$http', 'lodash',
                 tx.from(u, address.pubKeys, wallet.m);
               else
                 tx.from(u);
-              privKeys = privKeys.concat(address.privKeys);
+              for(i=0;i<wallet.n-1;i++){
+                privKeys.push(address.privKeys[i]);
+                }
 
             });
           }
